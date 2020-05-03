@@ -28,7 +28,10 @@ If you  want to specify which VoiceChannel to sort the list of members
 !daily --b2c
 ```
 
-![arguments flow diagram](./assets/argumentsFlow.jpg)
+<p align="center">
+  <img width="460" height="500" src="./assets/argumentsFlow.jpg">
+</p>
+
 
 
 #### to-do
