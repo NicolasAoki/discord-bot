@@ -8,19 +8,31 @@ client.once("ready", () =>{
 
 //id b2c
 //690644343199105055
+
+//705936009405267982
 client.on('message', msg => {
     //Get incoming messages that starts with the command `!${variable}` 
     if(msg.content.startsWith(`${prefix}daily`)){
+        
+        // 705048519823720492
+        // console.log(msg.guild.channels.cache.map(e => console.log(e)))
+
         channel = msg.guild.channels.cache.get('705048519823720492')
+
+        // channelId = msg.channel.id
+        // channel = msg.guild.channels.cache.get(channelId)
+
+
         let membersOnline = []
         for( const [id,member] of channel.members){
-            console.log(member.user.username)
             membersOnline.push(member.user.username)
         }
-        // msg.reply(`Usuarios online no canal general ${membersOnline}`)
+
         sortRandomly(membersOnline).map((member,i) => {
             msg.channel.send(`${++i} - ${member}`)
         })
+
+
         msg.channel.send('Lista sorteada !').then(sentMessage => {
             sentMessage.react('🦩');
         });

@@ -18,10 +18,20 @@
  }
  ```
 
- To get Channel and Members ID's it's necessarly to run discordApp with <b>developers mode</b>, and right click to access the element.
+To get Channel and Members ID's it's necessarly to run discordApp with <b>developers mode</b>, and right click to access the element.
 
 
- ## to-do
+#### Arguments feature 
+If you  want to specify which VoiceChannel to sort the list of members
+```
+!daily --<voiceChannel name>
+!daily --b2c
+```
+
+![arguments flow diagram](./assets/argumentsFlow.jpg)
+
+
+#### to-do
  - Get the Channel dynamically from who triggered the request
  - set <b>Preferencial users</b> to be along side when executing the sorting algorithm 
  - Exclude member parameter to not include a member in the sorting list
