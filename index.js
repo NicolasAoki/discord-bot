@@ -6,10 +6,6 @@ client.once("ready", () =>{
     console.log("Ready!")
 })
 
-// client.on('ready', () => {
-//   console.log(`Logged in as ${client.user.tag}!`);
-// });
-
 //id b2c
 //690644343199105055
 client.on('message', msg => {
