@@ -8,7 +8,7 @@
 - run those users through a random sort algorithm
 - return list of members to discordApp client
 
- After [adding]([asd](https://discordapp.com/developers/applications/))  the bot to the server. Run the index.js to attend to all requests made to bot.
+ After [adding]([asd](https://discordapp.com/developers/applications/))  the bot to the server. Run the index.js to attend to all requests made to the bot.
 
  Must insert config.json file. The token is set at the [Bot manager](https://discordapp.com/developers/applications/)
  ```
@@ -19,3 +19,9 @@
  ```
 
  To get Channel and Members ID's it's necessarly to run discordApp with <b>developers mode</b>, and right click to access the element.
+
+
+ ## to-do
+ - Get the Channel dynamically from who triggered the request
+ - set <b>Preferencial users</b> to be along side when executing the sorting algorithm 
+ - Exclude member parameter to not include a member in the sorting list
