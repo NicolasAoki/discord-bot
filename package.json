@@ -1,0 +1,28 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "As a communication improvement there was a lack of arrangement on who starts speaking at the discord channel. Any kind of sorting would fit.",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasAoki/discord-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicolasAoki/discord-bot/issues"
+  },
+  "homepage": "https://github.com/NicolasAoki/discord-bot#readme",
+  "engines": {
+    "node": "12.10.x"
+  }
+}
