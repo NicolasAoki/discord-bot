@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const { prefix, token } = require("./config.json")
+// const { prefix, token } = require("./config.json")
 const client = new Discord.Client()
 
 client.once("ready", () =>{
@@ -7,7 +7,7 @@ client.once("ready", () =>{
 })
 
 client.on('message', msg => {
-    if(msg.content.startsWith(`${prefix}daily`)){        
+    if(msg.content.startsWith(`${process.env.prefix}daily`)){        
         const args = msg.content.split(/ +/)
         args.shift()
         let voiceChannelId = 0
@@ -45,7 +45,7 @@ client.on('message', msg => {
         for( const [id,member] of channel.members){
             membersOnline.push(member.user.username)
         }
-        
+
         if(!membersOnline.length){
             msg.channel.send(`Nenhum flamingo neste canal`).then(sentMessage => {
                 sentMessage.react('😕');
@@ -80,4 +80,4 @@ function sortRandomlyUsingMap(array){
         arrayCopy[random] = element
     })
 }
-client.login(token);
+client.login(process.env.token);
