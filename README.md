@@ -24,8 +24,8 @@ To get Channel and Members ID's it's necessarly to run discordApp with <b>develo
 #### Arguments feature 
 If you  want to specify which VoiceChannel to sort the list of members
 ```
-!daily --<voiceChannel name>
-!daily --b2c
+!daily <voiceChannel name>
+!daily b2c
 ```
 
 <p align="center">
@@ -38,3 +38,8 @@ If you  want to specify which VoiceChannel to sort the list of members
  - Get the Channel dynamically from who triggered the request
  - set <b>Preferencial users</b> to be along side when executing the sorting algorithm 
  - Exclude member parameter to not include a member in the sorting list
+
+
+#### References
+- [Icons](https://emojipedia.org/)
+- [discord.js Documentation](https://discord.js.org/#/docs/main/stable/general/welcome)

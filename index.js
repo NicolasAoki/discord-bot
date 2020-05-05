@@ -6,36 +6,59 @@ client.once("ready", () =>{
     console.log("Ready!")
 })
 
-//id b2c
-//690644343199105055
-
-//705936009405267982
 client.on('message', msg => {
-    //Get incoming messages that starts with the command `!${variable}` 
-    if(msg.content.startsWith(`${prefix}daily`)){
-        
-        // 705048519823720492
-        // console.log(msg.guild.channels.cache.map(e => console.log(e)))
+    if(msg.content.startsWith(`${prefix}daily`)){        
+        const args = msg.content.split(/ +/)
+        args.shift()
+        let voiceChannelId = 0
+        let voiceChannelArray = []
+        let errorMsg
+    
+        if(!args) {
+            channelId = msg.channel.id
+            channel = msg.guild.channels.cache.get(channelId)
+        }
+        else{
+            msg.guild.channels.cache.map(voiceChannel => {
+                
+                if(voiceChannel.type === 'voice'){
+                    voiceChannelArray.push(voiceChannel.name)
 
-        channel = msg.guild.channels.cache.get('705048519823720492')
+                    if(voiceChannel.name.toLowerCase() == args[0]){
+                        voiceChannelId = voiceChannel.id
+                    }
+                }
+            })
+            if(voiceChannelId === 0) {
+                errorMsg = voiceChannelArray
+            }
+        }
 
-        // channelId = msg.channel.id
-        // channel = msg.guild.channels.cache.get(channelId)
+        channel = msg.guild.channels.cache.get(voiceChannelId)
+
+        if(errorMsg){
+            return msg.channel.send(`Por favor insira um destes canais: \n${errorMsg}`)
+        }
 
 
         let membersOnline = []
         for( const [id,member] of channel.members){
             membersOnline.push(member.user.username)
         }
-
-        sortRandomly(membersOnline).map((member,i) => {
-            msg.channel.send(`${++i} - ${member}`)
-        })
-
-
-        msg.channel.send('Lista sorteada !').then(sentMessage => {
-            sentMessage.react('🦩');
-        });
+        
+        if(!membersOnline.length){
+            msg.channel.send(`Nenhum flamingo neste canal`).then(sentMessage => {
+                sentMessage.react('😕');
+            })
+        }
+        else{
+            sortRandomly(membersOnline).map((member,i) => {
+                msg.channel.send(`${++i} - ${member}`)
+            })
+            msg.channel.send('Lista sorteada !').then(sentMessage => {
+                sentMessage.react('🦩');
+            });
+        }     
     }
 });
 
