@@ -33,6 +33,8 @@ If you  want to specify which VoiceChannel to sort the list of members
 </p>
 
 
+### Important
+If the application is hosted at Heroku's, then you must configure the token variable to be accessed through the [node process variable](https://devcenter.heroku.com/articles/config-vars) 
 
 #### to-do
  - Get the Channel dynamically from who triggered the request
@@ -43,3 +45,4 @@ If you  want to specify which VoiceChannel to sort the list of members
 #### References
 - [Icons](https://emojipedia.org/)
 - [discord.js Documentation](https://discord.js.org/#/docs/main/stable/general/welcome)
+- [Hosted at Heroku](https://dashboard.heroku.com/)
