@@ -1,6 +1,6 @@
 # discord-bot
 
- As a communication improvement there was a lack of arrangement on who starts speaking at the discord channel. Any kind of sorting would fit.
+Fun approach to list members of the Voice Channel at Discord
 
 - Log to the discordApp server through api
 - Listen to changes with the prefix `!daily` 

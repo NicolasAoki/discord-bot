@@ -1,13 +1,18 @@
 const Discord = require('discord.js')
-// const { prefix, token } = require("./config.json")
+const { prefix, token } = require("./config.json")
 const client = new Discord.Client()
-
+const emojis = ['🥺','❤️','😂','🥰','🔥','😊','😍','🔫','⚡','🏆','🎺','🙈','🙉',
+'🙊','💥','💫','💦','🐵','🦄','🐔','🐸','🐊','🦖','🦩','🌈','🛒','💣','🔪','📀',
+'🕯️','💰','💸','💳','🔓','🖤','✊🏽','✊🏾','✊🏿','☮️','⚔️','🗡️','⛏️','🛡️','🧬','🧲']
+const generateRandomEmoji = () => {
+    return emojis[Math.floor(Math.random() * emojis.length)]
+}
 client.once("ready", () =>{
     console.log("Ready!")
 })
 
 client.on('message', msg => {
-    if(msg.content.startsWith(`${process.env.prefix}daily`)){        
+    if(msg.content.startsWith(`${prefix}daily`)){        
         const args = msg.content.split(/ +/)
         args.shift()
         let voiceChannelId = 0
@@ -52,9 +57,12 @@ client.on('message', msg => {
             })
         }
         else{
+            let listOfMembers = ''
             sortRandomly(membersOnline).map((member,i) => {
-                msg.channel.send(`${++i} - ${member}`)
+                listOfMembers += `[${++i}] ${generateRandomEmoji()}  ${member}\n`
+                // msg.channel.send(`${++i} - ${member}`)
             })
+            msg.channel.send(listOfMembers)
             msg.channel.send('Lista sorteada !').then(sentMessage => {
                 sentMessage.react('🦩');
             });
@@ -71,13 +79,5 @@ function sortRandomly(array){
     }
     return array
 }
-function sortRandomlyUsingMap(array){
-    let arrayCopy = [...array]
-    return arrayCopy.map((value)=>{
-        let random = Math.floor(Math.random() * arrayCopy.length)
-        let element = value
-        value = arrayCopy[random]
-        arrayCopy[random] = element
-    })
-}
-client.login(process.env.token);
+
+client.login(token);
