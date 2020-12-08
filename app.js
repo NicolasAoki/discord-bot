@@ -4,8 +4,9 @@ const client = new Discord.Client()
 const emojis = ['🥺','❤️','😂','🥰','🔥','😊','😍','🔫','⚡','🏆','🎺','🙈','🙉',
 '🙊','💥','💫','💦','🐵','🦄','🐔','🐸','🐊','🦖','🦩','🌈','🛒','💣','🔪','📀',
 '🕯️','💰','💸','💳','🔓','🖤','✊🏽','✊🏾','✊🏿','☮️','⚔️','🗡️','⛏️','🛡️','🧬','🧲']
+const christmansEmojis = ['🎄','🎁','⛪','🎁','🌨️','🎁','🎁','🦌','🎁','🌲','🎅','🧤','🎄','🎄','🎁','❄️','🤶','❄️','☃️','⛄','🦢','🦃','🎁']
 const generateRandomEmoji = () => {
-    return emojis[Math.floor(Math.random() * emojis.length)]
+    return christmansEmojis[Math.floor(Math.random() * christmansEmojis.length)]
 }
 client.once("ready", () =>{
     console.log("Ready!")
@@ -63,7 +64,8 @@ client.on('message', msg => {
                 // msg.channel.send(`${++i} - ${member}`)
             })
             msg.channel.send(listOfMembers)
-            msg.channel.send('Lista sorteada !').then(sentMessage => {
+            msg.channel.send('Flamingos sorteados !!').then(sentMessage => {
+                sentMessage.react('🎄');
                 sentMessage.react('🦩');
             });
         }     
