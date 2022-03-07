@@ -5,15 +5,16 @@ const emojis = ['🥺','❤️','😂','🥰','🔥','😊','😍','🔫','⚡',
 '🙊','💥','💫','💦','🐵','🦄','🐔','🐸','🐊','🦖','🦩','🌈','🛒','💣','🔪','📀',
 '🕯️','💰','💸','💳','🔓','🖤','✊🏽','✊🏾','✊🏿','☮️','⚔️','🗡️','⛏️','🛡️','🧬','🧲']
 const christmansEmojis = ['🎄','🎁','⛪','🎁','🌨️','🎁','🎁','🦌','🎁','🌲','🎅','🧤','🎄','🎄','🎁','❄️','🤶','❄️','☃️','⛄','🦢','🦃','🎁']
+const easterEmojis = ['👯','👯‍♀️','👯‍♂️','🧟','🧟‍♂️','🧟‍♀️','🐤','🐥','🐣','🐰','🐇','🥚','🍫','🐟','🎣','⛪','🪦','⚰️','✝️','☦️','💀','☠️','🏴‍☠️']
 const generateRandomEmoji = () => {
-    return christmansEmojis[Math.floor(Math.random() * christmansEmojis.length)]
+    return easterEmojis[Math.floor(Math.random() * easterEmojis.length)]
 }
 client.once("ready", () =>{
     console.log("Ready!")
 })
 
 client.on('message', msg => {
-    if(msg.content.startsWith(`${prefix}daily`)){        
+    if(msg.content.startsWith(`${prefix}daily`)){
         const args = msg.content.split(/ +/)
         args.shift()
         let voiceChannelId = 0
@@ -65,7 +66,7 @@ client.on('message', msg => {
             })
             msg.channel.send(listOfMembers)
             msg.channel.send('Flamingos sorteados !!').then(sentMessage => {
-                sentMessage.react('🎄');
+                sentMessage.react('🐰');
                 sentMessage.react('🦩');
             });
         }     
